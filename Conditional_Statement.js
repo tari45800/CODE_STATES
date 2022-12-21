@@ -209,11 +209,8 @@ function convertScoreToGradeWithPlusAndMinus(score) {
   // 아니면 점수가 70 이상일 경우, C를 변수에 저장한다.
   // 아니면 점수가 60 이상일 경우, D를 변수에 저장한다.
   // 아니면 점수가 60 미만일 경우, F를 변수에 저장한다.
-  
-
-  //이미 90이상이고 92이하고 98이상인 경우에 메뉴얼을 정했다.
-  // => 100,99,98,92,91,90;
-  // 가 아닌 경우에는 A를 주고싶다.
+  // 만약 점수의 1의 자리가 8이상이라면 '+'를 변수에 더한다.
+  // 아니면 점수의 1의 자리가 2이하라면 '-'를 변수에 더한다. 
 
   let s = '';
 
@@ -232,16 +229,16 @@ function convertScoreToGradeWithPlusAndMinus(score) {
   } else if (score >= 0 && score <= 59) {
     s = 'F';
   } else {
-    s = 'INVALID SCOR';
+    s = 'INVALID SCORE';
   }
 
   if (score >= 60 && score <= 100) {
     score = score % 10; //9
 
     if (score >= 8) {
-      s = '+' + s;
+      s = s + '+';
     } else if (score <= 2) {
-      s = '-' + s;
+      s = s + '-';
     }
   }
 
@@ -296,7 +293,91 @@ function addOneSecond(hour, minute, second) {
     }
   }
 
-  return `1초 뒤에 ${hour}시 ${minute}분 ${second}초`;
+  return `1초 뒤에 ${hour}시 ${minute}분 ${second}초 입니다`;
 }
 
 console.log(addOneSecond(23, 59, 59));
+
+
+//----------------------------------------------------------------------------------------------------
+
+
+/*
+8. findShortestOfThreeWords
+
+차례대로 문자열 3개를 입력받아, 가장 짧은 문자열을 리턴해야 합니다.
+*/
+
+function findShortestOfThreeWords(word1, word2, word3) {
+  // 수도코드
+  // 리턴할 문자열을 선언한다.
+  // 만약에 1번의 길이가 2번의 길이보다 크거나 똑같으면 1번을 변수에 저장하고
+  // 아니면 2번을 변수에 저장해라
+
+  // 만약에 변수의 길이가 3번의 길이보다 크거나 똑같으면 변수를 리턴하고
+  // 아니면 3번을 리턴하라
+
+  let word = '';
+
+  if (word1.length <= word2.length) {
+    word = word1;
+  } else {
+    word = word2;
+  }
+
+  if (word.length <= word3.length) {
+    return word;
+  } else {
+    return word3;
+  }
+}
+
+console.log(findShortestOfThreeWords('c', 'b', 'a')); // --> 'a'
+
+
+
+//----------------------------------------------------------------------------------------------------
+
+
+/*
+ 9. makeLastSeenMsg
+ 사용자의 이름과 미접속 시간(분)을 입력받아 조건별로 다른 메세지를 리턴해야 합니다.
+
+  string 타입을 리턴해야 합니다.
+  미접속 시간이 1시간 보다 적을 경우, 분 단위로 표기합니다.
+  미접속 시간이 1시간 보다 크고 24시간 보다 적을 경우, 시간 단위로 내림처리하여 표기합니다.
+  미접속 시간이 24시간 보다 클 경우, 일 단위로 내림처리하여 표기합니다.
+ 
+ */
+
+  function makeLastSeenMsg(name, period) {
+    // 수도코드
+    // 리턴할 스트링 타입 변수 선언
+    // 만약 숫자가 60미만이면 변수에 저장
+    // 아니고 만약 60이상이고 1440 미만이면
+    // 숫자를 60으로 나눈값을 내림 후 변수에 저장
+    // 아니면 만약 1440 이상이면
+    // 숫자를 1440로 나눈값을 내림 후 변수에 저장
+    // 변수에 이름 '변수' 분 전에 접속함 저장
+  
+    let online = '';
+    if (period < 60) {
+      online = period + '분';
+    } else if (period >= 60 && period < 1440) {
+      online = Math.floor(period / 60) + '시간';
+    } else if (period >= 1440) {
+      online = Math.floor(period / 1440) + '일';
+    }
+  
+    return (online = `${name}: ${online} 전에 접속함`);
+  }
+  
+  let output = makeLastSeenMsg('mike', 40);
+  console.log(output); // --> 'mike: 40분 전에 접속함'
+  
+  output = makeLastSeenMsg('mike', 121);
+  console.log(output); // --> 'mike: 2시간 전에 접속함'
+  
+  output = makeLastSeenMsg('mike', 2887);
+  console.log(output); // --> 'mike: 2일 전에 접속함'
+  
