@@ -1,7 +1,16 @@
+@font-face {
+  font-family: 'BMJUA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'BMJUA';
+
 }
 
 body{
@@ -55,50 +64,72 @@ body{
   background-color: rgb(223, 94, 47); 
   transform: rotate(20deg) skew(-15deg);  
   z-index: 1;
-  box-shadow: 100px 80px 20px rgba(0, 0, 0, 0.3);
-
+  box-shadow:80px 60px 20px rgba(0, 0, 0, 0.2);
 }
 
-.resultDiv{
+.resultBox{
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px 30px 25px;
+  border-radius: 20PX;
 }
 
 
-
-.line{
-  margin: 10px auto;
-  width: 85%;
-  height: 5px;
-  background-color: white;
-  box-shadow: 3px 3px 0 #ccc;
+.resultRow, .mainResult{
+  display: flex;
+  flex-direction: row-reverse;
+  
 }
 
-.result{
-  float: right;
-  font-size: 100px;
-  color: white;
-  text-shadow: 3px 3px 0 #ccc;
 
-  margin: 0 20px;
+.title{
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  color: transparent;
+  text-shadow: 1px 1px 1px rgb(67, 237, 33),2px 2px 1px #eee, 3px 3px 1px #ddd, 
+  4px 4px 1px #ccc,5px 5px 3px rgba(0, 0, 0, 0.3); 
 }
 
-.resultLine{
-  margin: 0 auto;
-  width: 85%;
-  clear: both;
-  height: 10px;
-  background-color: white;
-  box-shadow: 3px 3px 0 #ccc;
+.resultRow{
+  flex: 1;
+  font-size: 20px;
+  color: transparent;
+  text-shadow: 1px 1px 1px #fff,2px 2px 1px #eee, 3px 3px 1px #ddd, 
+  4px 4px 1px #ccc, 5px 5px 3px rgba(0, 0, 0, 0.3); 
+}
 
+.mainResult{
+  flex: 2;
+  font-size: 50px;
+  color: transparent;
+  text-shadow: 1px 1px 1px #fff,2px 2px 1px #eee, 3px 3px 1px #ddd, 
+  4px 4px 1px #ccc, 5px 5px 1px #bbb, 5px 5px 3px rgba(0, 0, 0, 0.3); 
+}
+
+.line1, .line2{
+  background-color: #fff;
+  height: 2px;
+  border-radius: 6px;
+  box-shadow:1px 1px 1px #fff,2px 2px 1px #eee, 3px 3px 1px #ddd, 5px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.line1{
+  margin-bottom: 20px;
+}
+
+.line2{
+  margin-top: 20px;
 }
 
 
 /* ---------------------------------------------------------------------------------------------------- */
 
-.button{
-  flex: 2;
+.buttonBox{
+  flex: 1.5;
   display: flex;
-  padding: 20px 20px 20px 0;
+  padding: 0 25px 25px 20px;
 }
 
 .col{
@@ -108,12 +139,30 @@ body{
 }
 
 .row {
+  position: relative;
+  color: transparent;
   text-align: center;
   font-size: 30px;
-  margin: 5px ;
-  background-color: white;
+  margin: 6px ;
   border-radius: 10px;
   flex: 1;
-  box-shadow: 5px 5px 0 #aaa;
-  text-shadow: 1px 1px 0 #aaa;
+  text-shadow: 1px 1px 1px #fff,2px 2px 1px #ccc, 3px 3px 1px #ccc, 
+  4px 4px 1px #bbb, 5px 5px 1px #aaa, 5px 5px 3px rgba(0, 0, 0, 0.3);  
+}
+
+.row div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.row div:active{
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 1px #fff,2px 2px 1px #ccc, 3px 3px 3px rgba(0, 0, 0, 0.3);  
 }
