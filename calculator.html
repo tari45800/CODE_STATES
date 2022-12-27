@@ -5,13 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
+
 
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+
+  <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
+
+  
 </head>
 <body>
   
+
+
+
+  <button>ㅋㅋㅁㄴㄴㅇㄴㅁㅇㄴㅁㅁㄴㅇ</button>
+
   <div class="container">
     <div class="calculator">
 
@@ -21,7 +30,7 @@
         <div class="resultRow">7 + 9</div>
         <div class="resultRow">2 + 3</div>
         <div class="resultRow">4 - 3</div>
-        <div class="mainResult">-1,000,000</div>
+        <div class="calculator__display">0</div>
         <div class="line2"></div>
   
       </div>
@@ -29,31 +38,31 @@
       <div class="buttonBox">
         <div class="col">
           <div class="row"><div>C</div></div>
-          <div class="row"><div>1</div></div>
-          <div class="row"><div>4</div></div>
-          <div class="row"><div>7</div></div>
+          <div class="row"><button class="number">1</button></div>
+          <div class="row"><button class="number">4</button></div>
+          <div class="row"><button class="number">7</button></div>
           <div class="row"><div>.</div></div>
         </div>
         <div class="col">
           <div class="row"><div>()</div></div>
-          <div class="row"><div>2</div></div>
-          <div class="row"><div>5</div></div>
-          <div class="row"><div>8</div></div>
-          <div class="row"><div>0</div></div>
+          <div class="row"><button class="number">2</button></div>
+          <div class="row"><button class="number">5</button></div>
+          <div class="row"><button class="number">8</button></div>
+          <div class="row"><button class="number">0</button></div>
         </div>
         <div class="col">
           <div class="row"><div>%</div></div>
-          <div class="row"><div>3</div></div>
-          <div class="row"><div>6</div></div>
-          <div class="row"><div>9</div></div>
+          <div class="row"><button class="number">3</button></div>
+          <div class="row"><button class="number">6</button></div>
+          <div class="row"><button class="number">9</button></div>
           <div class="row"><div>000</div></div>
         </div>
         <div class="col">
-          <div class="row"><div>&divide;</div></div>
-          <div class="row"><div>x</div></div>
-          <div class="row"><div>+</div></div>
-          <div class="row"><div>-</div></div>
           <div class="row"><div>=</div></div>
+          <div class="row"><button class="operator">+</button></div>
+          <div class="row"><button class="operator">-</button></div>
+          <div class="row"><button class="operator">*</button></div>
+          <div class="row"><button class="operator">/</button></div>
         </div>
       </div>
 
@@ -61,5 +70,66 @@
     <div class="calculator_bottom"></div>
     <div class="calculator_side"></div>
   </div>
+
+  
+  <!-- 스크립트 태그는 항상 바디 최하단에 박아놓자, 왜냐하면 아직 바디 태그가 로딩되지 않은 상태임으로 클래스를 불러들일 수 없기 때문. -->
+  <script>
+
+         let display = document.querySelector('.calculator__display');
+    
+         //document.getElementById는 단일 DOM 객체를 가져오지만, document.querySelectorAll은 NodeCollection을 가져온다.(이름도 컬렉션...)
+        //let buttons = document.querySelectorAll('button');
+    
+  
+
+        let buttons = document.querySelectorAll('button');
+
+        // 반복문 밖으로 빼줘야 변수를 사용가능하지?
+
+        let f = '';
+        let s = '';
+        let o = '';
+        let t = '';
+
+        for(let i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener('click', function() {
+            
+            const target = event.target; 
+            const action = target.classList[0];
+          
+            //만약 등호칸에 아무것도 없고 숫자가 입력되었다면
+            if(o === '' && s ==='' && action == 'number'){
+              f = f + this.textContent;
+              display.textContent = f;
+              alert(1)
+            // 만약 등호칸이 채워졌고 숫자가 입력되었다면
+            } else if( s ==='' && action == 'number'){
+              s = s + this.textContent;
+              display.textContent = s;
+              alert(2)
+
+            } else if(action == 'number'){
+              //만약 기호가 뭐뭐 라면
+              if(o === '+'){
+                t = t + f + s;
+              } else if(o === '-'){
+                t = t + f - s;
+              } else if(o === '*'){
+                t = t + f * s;
+              } else if(o === '/'){
+                t = t + f / s;
+              }
+              display.textContent = t;
+
+            }
+
+            //만약 기호가 입력됬다면
+            if(action == 'operator'){
+              o = this.textContent;
+            }
+          });
+    }
+           
+  </script>
 </body>
 </html>

@@ -76,7 +76,7 @@ body{
 }
 
 
-.resultRow, .mainResult{
+.resultRow, .calculator__display{
   display: flex;
   flex-direction: row-reverse;
   
@@ -100,7 +100,7 @@ body{
   4px 4px 1px #ccc, 5px 5px 3px rgba(0, 0, 0, 0.3); 
 }
 
-.mainResult{
+.calculator__display{
   flex: 2;
   font-size: 50px;
   color: transparent;
@@ -144,22 +144,30 @@ body{
   text-align: center;
   font-size: 30px;
   margin: 6px ;
-  border-radius: 10px;
   flex: 1;
   text-shadow: 1px 1px 1px #fff,2px 2px 1px #ccc, 3px 3px 1px #ccc, 
   4px 4px 1px #bbb, 5px 5px 1px #aaa, 5px 5px 3px rgba(0, 0, 0, 0.3);  
 }
 
-.row div{
+.row button{
+
+  border: none;
+  background-color: transparent;
+  color: transparent;
+  font-size: 30px;
+
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
   transition: 0.1s;
+  text-shadow: 1px 1px 1px #fff,2px 2px 1px #ccc, 3px 3px 1px #ccc, 
+  4px 4px 1px #bbb, 5px 5px 1px #aaa, 5px 5px 3px rgba(0, 0, 0, 0.3);  
 }
 
-.row div:active{
+.row button:active{
   position: absolute;
   top: 55%;
   left: 55%;
