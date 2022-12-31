@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    /*
+    01_getProperty
+    객체와 키를 입력받아 키에 해당하는 값을 리턴해야 합니다.
+    */
+
+ let obj {
+   name : 이제윤 
+   
+ }
+
+
+    function getProperty(obj, property) {
+    //수도코드 
+    //키에 해당하는 값을 리턴 하는게 핵심!
+    // 중요! 변수를 문자열로 감싸면 문자열이 된다. 
+    // obj['property']; => x
+    obj[property];
+
+
+
+    return 
+
+    /*
+    02_addProperty
+    1.  객체와 키를 입력받아 
+    2.  키에 해당하는 값 
+    3.  을 true를 할당한다.
+    */
+
+    function addProperty(obj, property) {
+    // 수도코드
+  
+    obj[property] = true;
+    }
+
+    /*
+    03_addPropertyAndValue
+    1. 객체와 키, 값을 입력받아 키에 값
+    2. 을 할당해야 합니다.
+    */
+
+    function addPropertyAndValue(obj, property, value) {
+    // 수도코드
+
+  obj[property] = value;
+  }
+
+  /*
+  04_addObjectProperty
+  1. 두 개의 객체와 키를 입력받아 
+  2. 첫번째 객체의 키
+  3. 에 두번째 객체를 할당해야 합니다.
+  */
+
+ 
+
+  function addObjectProperty(obj1, property, obj2) {
+  // 수도코드
+  obj1[property] = obj2;
+  }
+
+
+
+  let 객체 = {
+    키1 : '값1',
+    키2 : '값2'
+  }
+
+  /*
+  05_removeProperty
+  1. 객체와 키를 입력받아 
+  2. 입력받은 객체의 입력받은 키
+  3. 키가 들어있는 속성을 제거합니다.
+  */
+
+  function removeProperty(obj, property) {
+  // 수도코드
+  // 핵심은 제거!!
+  // delete 객체.키 
+  // 키와 값이 지워진다. === 프로퍼티를 지운다. 
+
+  delete obj[property];
+  
+};
+  }
+
+
+
+//============================================
+
+/*
+06_removeNumberValues
+1. 객체를 입력받아 
+2. number 타입의 값을 갖는 속성을 
+3. 모두 제거해야 합니다.
+*/
+
+
+  function removeNumberValues(obj) {
+  // 수도코드
+  // 객체를 순회한다. 
+  // 만약 
+  // 객체의 값
+  // 이 숫자라면
+  // 프로퍼티를 제거 한다. 
+
+  for(let i in obj){
+   
+    if(typeof obj[i] === 'number'){
+      delete obj[i];
+    }
+
+  }
+
+}
+
+
+
+/*
+07_removeArrayValues
+1. 객체를 입력받아 
+2. 배열을 값으로 갖는 속성을 
+3. 모두 제거해야 합니다.
+*/
+
+function removeArrayValues(obj) {
+  for(let i in obj){
+   
+    if(Array.isArray(obj[i])){
+      delete obj[i];
+    }
+
+  }
+}
+
+
+
+/*
+08_removeOddValues
+1. 객체를 입력받아 
+2. 홀수를 값으로 갖는 속성을 
+3. 모두 제거해야 합니다.
+*/
+
+function removeOddValues(obj) {
+  // 수도코드
+  // 만약 속성 값이 숫자이고
+  // 속성 값을 2로 나누었을 때 나머지가 있으면 = 홀수 
+  // 프로퍼티를 삭제한다. 
+  for(let i in obj){
+
+    if(obj[i]%2 !== 0){
+      delete obj[i]
+    }
+  }
+
+}
+
+/*
+09_isPersonOldEnoughToVote
+1. 객체를 입력받아 
+2. 객체가 가진 age 속성값이 
+3. 합법적으로 투표할 수 있는 나이(18세 이상)인지 여부를 
+4. 리턴해야 합니다.
+*/
+
+
+function isPersonOldEnoughToVote(person) {
+  // 수도코드
+  // 객체가 가진 age 속성값에 접근한다. 
+  // 18세 이상인지 판단함.
+  // 리턴함
+  return person['age'] >= 18;
+}
+
+/*
+10_addFullNameProperty
+객체를 입력받아 'firstName', 'lastName' 속성값 사이에 
+띄어쓰기 하나를 둔 단일 문자열을 fullName 속성값으로 할당해야 합니다.
+*/
+
+
+
+
+
+function addFullNameProperty(obj) {
+  // 수도코드
+  // 객체를 입력받는다.
+  // 'firstName'과 'lastName' 속성 값을 찾는다.
+  // 띄어쓰기 하나를 둔 단일 문자열을
+  // fullName 속성값으로 할당
+
+  obj['fullName'] = obj['firstName'] + ' ' + obj['lastName'];
+
+}
+
+
+
+/*
+11_removeNumbersLargerThan
+수와 객체를 입력받아 
+입력받은 수보다 큰 수를 갖는 속성을 모두 제거해야 합니다.
+*/
+
+function removeNumbersLargerThan(num, obj) {
+  // 수도코드
+
+  for(let i in obj){
+    if(num < obj[i] ){
+      delete obj[i];
+    }
+  }
+
+}
+
+
+// 문제를 봤을 때 
+// 구해야되는 값이 모든 프로퍼티를 검색해야 할때
+// 포인문을 쓴다.
+
+
+
+/*
+12_countNumberOfKeys
+객체를 입력받아 속성의 개수를 리턴해야 합니다.
+
+
+
+
+  </script>
+</body>
+</html>
