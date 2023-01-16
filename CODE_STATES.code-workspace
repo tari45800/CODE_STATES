@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../fe-sprint-calculator"
+		},
+		{
+			"name": "project_calculator",
+			"path": "../project_calculator"
+		},
+		{
+			"name": "fe-sprint-javascript-koans",
+			"path": "../fe-sprint-javascript-koans"
+		},
+		{
+			"name": "fe-dom-practice",
+			"path": "../fe-dom-practice"
+		},
+		{
+			"name": "fe-sprint-validation-check",
+			"path": "../fe-sprint-validation-check"
+		},
+		{
+			"name": "league_of_legends",
+			"path": "../league_of_legends"
+		},
+		{
+			"name": "algorithm",
+			"path": "../algorithm"
+		},
+		{
+			"name": "fe-sprint-my-agora-states",
+			"path": "../fe-sprint-my-agora-states"
+		},
+		{
+			"name": "algorithm-study",
+			"path": "../algorithm-study"
+		},
+		{
+			"name": "fe-sprint-beesbeesbees",
+			"path": "../fe-sprint-beesbeesbees"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CODE_STATES"
+	}
+}
